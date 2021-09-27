@@ -1,3 +1,165 @@
 @charset 'utf-8';
 @import 'reset';
 
+main{
+    width: 100%;
+    height: 100vh;
+    background: #333;
+    overflow: hidden;
+    display: flex;
+}
+
+#header{
+    width: 20%;
+    height: 100%;
+    padding: 5vw 7vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-between;
+    position: relative;
+    z-index: 3;
+
+    h1{
+        font: 14px/1 'arial';
+        color: #fff;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        i{
+            font-size: 90px;
+            margin-bottom: 40px;
+        }
+    }
+    address{
+        font: 11px/1.2 'arial';
+        color: #888;
+    }
+}
+
+#nav{
+    position: absolute;
+    top: 5vw;
+    right: 7vw;
+
+    ul{
+        display: flex;
+
+        li a{
+            color: #bbb;
+            font-size: 18px;
+            margin-left: 1.5vw;
+        }
+    }
+}
+
+#section{
+    width: 80%;
+    display: flex;
+    padding-top: 7vw;
+
+    article{
+        padding: 7vw 2vw;
+        flex: 1;
+        opacity: 0.8;
+        z-index: 1;
+        transition: 1s;
+        position: relative;
+
+        &::before{
+            content:'';
+            display: block;
+            width: 80%;
+            height: 90%;
+            background: #444;
+            position: absolute;
+            top: 0;
+            left: -200px;
+            opacity: 0;
+            transition: 1.5s;
+        }
+        &:hover{
+            padding-top: 6vw;
+            opacity: 1;
+            z-index: 2;
+            flex: 1.5;
+
+            &::before{
+                opacity: 1;
+                left: 0;
+            }
+            .inner{
+                .txt{
+                    h2{
+                        color: #ddd;
+                        font-size: 50px;
+    
+                        &::after{
+                            width: 100px;
+                            background: orange;
+                        }
+                    }
+                    p{
+                        width: 90%;
+                    }
+                }
+                .pic{
+                    height: 200px;
+                    filter: saturate(120%);
+                    transform: translateY(15px);
+                }
+            }
+        }
+        .inner{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-between;
+            position: relative;
+            cursor: pointer;
+
+            .txt{
+                h2{
+                    font: 28px/1 'arial';
+                    color: #999;
+                    letter-spacing: 1px;
+                    margin-bottom: 70px;
+                    position: relative;
+                    transition: 1s;
+
+                    &::after{
+                        content:'';
+                        display: block;
+                        width: 40px;
+                        height: 2px;
+                        background: #666;
+                        position: absolute;
+                        left:0;
+                        bottom: -20px;
+                        transition: 1s;
+                    }
+                }
+                p{
+                    font: 15px/1.2 'arial';
+                    color: #777;
+                    position: relative;
+                }
+            }
+            .pic{
+                width: 100%;
+                height: 150px;
+                filter: saturate(10%);
+                transition: 1s;
+                transform-origin: left bottom;
+
+                video{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+}
